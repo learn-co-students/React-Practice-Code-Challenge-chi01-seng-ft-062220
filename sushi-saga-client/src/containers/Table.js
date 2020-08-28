@@ -3,25 +3,22 @@ import React, { Fragment } from 'react'
 const Table = (props) => {
 
   const renderPlates = (array) => {
-    return array.map((x, index) => {
-      return <div className="empty-plate" style={{ top: -7 * index }}/>
+    return array.map((sushi, index) => {
+      return <div key={sushi.id} className="empty-plate" style={{ top: -7 * index }}/>
     })
+    //36. now that we have sushi as object, replace x with sushi and give table an key 
   }
 
   return (
     <Fragment>
       <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
+        You have: ${ props.wallet} remaining!
+        {/* 39. passed down props now can be used on table*/}
       </h1>
       <div className="table">
         <div className="stack">
           {
-            /* 
-               renderPlates takes an array 
-               and renders an empty plate
-               for every element in the array
-            */
-            renderPlates([])
+            renderPlates(props.eatenSushi)
           }
         </div>
       </div>
@@ -30,3 +27,5 @@ const Table = (props) => {
 }
 
 export default Table
+//28. prop call back function already existed
+//      just passed props into render Plates 
