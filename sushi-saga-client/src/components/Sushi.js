@@ -7,7 +7,7 @@ const Sushi = (props) => {
     if(props.sushiData.price <= props.currentBudget){
       setEaten([...eaten, props.sushiData])
       props.updateBudget(props.sushiData.price)
-      props.emptyPlates(props.sushiData)
+      props.emptyPlates([...eaten])
     } 
   }
   
